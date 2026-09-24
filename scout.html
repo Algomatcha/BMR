@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCOUT — BMR</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #000;
+    color: #d0d0d0;
+    font-family: 'Courier New', monospace;
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 50px 40px;
+}
+
+#bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.18;
+}
+
+.wrap {
+    max-width: 780px;
+    position: relative;
+    z-index: 1;
+}
+
+.back {
+    display: inline-block;
+    color: #666;
+    text-decoration: none;
+    margin-bottom: 34px;
+    font-size: 13px;
+}
+
+.back:hover { color: #fff; }
+
+.logo {
+    white-space: pre;
+    font-size: 20px;
+    line-height: 1;
+    font-weight: bold;
+    color: #00e5ff;
+    margin-bottom: 18px;
+}
+
+.tagline { color: #fff; margin-bottom: 40px; }
+
+h2 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ff3b5c;
+    margin: 40px 0 10px;
+    letter-spacing: 1px;
+}
+
+p { margin-bottom: 12px; max-width: 68ch; }
+
+.specs { list-style: none; max-width: 68ch; }
+.specs li { color: #999; }
+.specs li::before { content: "  - "; color: #4ade80; }
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.gallery figure {
+    border: 1px solid #222;
+    background: #080808;
+}
+
+.gallery img, .gallery video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.gallery figcaption {
+    padding: 7px 10px;
+    font-size: 12px;
+    color: #666;
+    border-top: 1px solid #222;
+}
+
+.ph {
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2e2e2e;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.tier { margin: 22px 0; max-width: 68ch; }
+
+.tier-head {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+.tier-name { font-weight: bold; letter-spacing: 1px; }
+.b { color: #ff3b5c; }
+.m { color: #c94cff; }
+.r { color: #00e5ff; }
+
+.price { color: #fff; }
+.tier-desc { color: #999; margin-bottom: 10px; }
+
+.buy {
+    display: inline-block;
+    border: 1px solid #444;
+    padding: 5px 16px;
+    color: #d0d0d0;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.buy:hover { border-color: #fff; background: #fff; color: #000; }
+
+a { color: #c94cff; text-decoration: none; }
+a:hover { color: #fff; }
+
+footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+    color: #555;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    body { padding: 30px 20px; }
+    .logo { font-size: 11px; }
+}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+
+<div class="wrap">
+    <a class="back" href="index.html">&larr; BMR</a>
+
+    <div class="logo">███████╗ ██████╗ ██████╗ ██╗   ██╗████████╗
+██╔════╝██╔════╝██╔═══██╗██║   ██║╚══██╔══╝
+███████╗██║     ██║   ██║██║   ██║   ██║   
+╚════██║██║     ██║   ██║██║   ██║   ██║   
+███████║╚██████╗╚██████╔╝╚██████╔╝   ██║   
+╚══════╝ ╚═════╝ ╚═════╝  ╚═════╝    ╚═╝   </div>
+
+    <p class="tagline">Autonomous Rover</p>
+
+    <h2>MEDIA</h2>
+    <div class="gallery">
+        <figure>
+            <div class="ph">[ IMAGE ]</div>
+            <figcaption>Chassis, top view</figcaption>
+        </figure>
+        <figure>
+            <div class="ph">[ IMAGE ]</div>
+            <figcaption>Drivetrain detail</figcaption>
+        </figure>
+        <figure>
+            <div class="ph">[ VIDEO ]</div>
+            <figcaption>Autonomous navigation run</figcaption>
+        </figure>
+        <figure>
+            <div class="ph">[ IMAGE ]</div>
+            <figcaption>Populated PCB</figcaption>
+        </figure>
+    </div>
+
+    <h2>SPECS</h2>
+    <ul class="specs">
+        <li>TBD</li>
+    </ul>
+
+    <h2>GET SCOUT</h2>
+
+    <div class="tier">
+        <div class="tier-head"><span class="tier-name b">DIGITAL</span><span class="price">$0</span></div>
+        <p class="tier-desc">CAD files, PCB gerbers, firmware, BOM with supplier links. Print and source it yourself.</p>
+        <a class="buy" href="#">DOWNLOAD</a>
+    </div>
+
+    <div class="tier">
+        <div class="tier-head"><span class="tier-name m">COMPONENTS</span><span class="price">$TBD</span></div>
+        <p class="tier-desc">The parts that are annoying to source: custom PCB, motors, drivers, sensors. Bring your own printed chassis.</p>
+        <a class="buy" href="#">BUY</a>
+    </div>
+
+    <div class="tier">
+        <div class="tier-head"><span class="tier-name r">FULL KIT</span><span class="price">$TBD</span></div>
+        <p class="tier-desc">Everything, partially assembled. Printed chassis, populated PCB, flashed firmware. Roughly an hour to finish.</p>
+        <a class="buy" href="#">BUY</a>
+    </div>
+
+    <h2>CONTACT</h2>
+    <p><a href="mailto:hello@buildmorerobots.ai">hello@buildmorerobots.ai</a></p>
+
+    <footer>BMR &copy; 2026 &mdash; Open source hardware, MIT License<br>Palo Alto &middot; NYC &middot; LA</footer>
+</div>
+
+<script>
+const c = document.getElementById('bg');
+const x = c.getContext('2d');
+c.width = innerWidth; c.height = innerHeight;
+addEventListener('resize', () => { c.width = innerWidth; c.height = innerHeight; });
+
+class Cube {
+    constructor(px, py, s, col) {
+        this.px = px; this.py = py; this.s = s; this.col = col;
+        this.rx = 0; this.ry = 0; this.rz = 0;
+        this.sx = (Math.random() - 0.5) * 0.015;
+        this.sy = (Math.random() - 0.5) * 0.015;
+        this.sz = (Math.random() - 0.5) * 0.015;
+    }
+    p(a, b, d) {
+        let y1 = b * Math.cos(this.rx) - d * Math.sin(this.rx);
+        let z1 = b * Math.sin(this.rx) + d * Math.cos(this.rx);
+        let x1 = a * Math.cos(this.ry) + z1 * Math.sin(this.ry);
+        let x2 = x1 * Math.cos(this.rz) - y1 * Math.sin(this.rz);
+        let y2 = x1 * Math.sin(this.rz) + y1 * Math.cos(this.rz);
+        return { x: x2 + this.px * c.width, y: y2 + this.py * c.height };
+    }
+    draw() {
+        this.rx += this.sx; this.ry += this.sy; this.rz += this.sz;
+        const s = this.s;
+        const v = [[-s,-s,-s],[s,-s,-s],[s,s,-s],[-s,s,-s],[-s,-s,s],[s,-s,s],[s,s,s],[-s,s,s]];
+        const e = [[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]];
+        const pr = v.map(a => this.p(a[0], a[1], a[2]));
+        x.strokeStyle = this.col;
+        x.lineWidth = 1;
+        e.forEach(g => {
+            x.beginPath();
+            x.moveTo(pr[g[0]].x, pr[g[0]].y);
+            x.lineTo(pr[g[1]].x, pr[g[1]].y);
+            x.stroke();
+        });
+    }
+}
+
+class Dot {
+    constructor(col) {
+        this.a = Math.random() * 6.28;
+        this.r = 80 + Math.random() * 220;
+        this.v = 0.0008 + Math.random() * 0.002;
+        this.cx = Math.random();
+        this.cy = Math.random();
+        this.sz = 1 + Math.random() * 1.5;
+        this.col = col;
+    }
+    draw() {
+        this.a += this.v;
+        x.fillStyle = this.col;
+        x.beginPath();
+        x.arc(this.cx * c.width + Math.cos(this.a) * this.r, this.cy * c.height + Math.sin(this.a) * this.r, this.sz, 0, 6.28);
+        x.fill();
+    }
+}
+
+const cubes = [new Cube(0.85, 0.25, 42, '#00e5ff'), new Cube(0.78, 0.72, 30, '#c94cff'), new Cube(0.95, 0.5, 24, '#ff3b5c')];
+const dots = [];
+const pal = ['#ff3b5c', '#c94cff', '#00e5ff', '#4ade80'];
+for (let i = 0; i < 45; i++) dots.push(new Dot(pal[i % 4]));
+
+(function loop() {
+    x.clearRect(0, 0, c.width, c.height);
+    cubes.forEach(o => o.draw());
+    dots.forEach(o => o.draw());
+    requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
